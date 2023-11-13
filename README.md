@@ -2,8 +2,8 @@
 
 This action registers a new version of the package in a local registry using [LocalRegistry.jl](https://github.com/GunnarFarneback/LocalRegistry.jl). It requires two inputs
 
-- `localregistry`: GitHub url (ssh/https) of local-registry to be updated by the action
-- `ssh_keys`: SSH key(s) for accessing the repos and pushing to local registry. Multiple keys by using the pipe |
+- `localregistry`: GitHub url (ssh/https) of local-registry to be updated by the action.
+- `ssh_keys`: SSH key(s) for accessing the repos and pushing to local registry. Multiple keys by using the pipe | operator.
 
 The commit in the local-registry is signed as `github.actor@RegisterAction`. If no new package version is specified in the commit, nothing is pushed to the local-registry. It makes sense to run this action conditionally, after the unit tests passed. 
 
