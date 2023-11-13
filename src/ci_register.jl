@@ -5,6 +5,8 @@ command line argument. If no new package version is found, do nothing.
 import Pkg
 
 # Add local registry
+Pkg.Registry.update()
+Pkg.Registry.add("General") # Add general registry
 Pkg.Registry.add(Pkg.RegistrySpec(; url = ARGS[1]))
 
 # Create temporary environment and dev current repo/package
