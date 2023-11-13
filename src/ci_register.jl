@@ -1,7 +1,6 @@
 #=
-Register and update package version in specified local registry. If no new package version
-is specified, do nothing.
-The local registry is specified as a command line argument
+Register and update package version in local registry specified as a https/ssh path in activate
+command line argument. If no new package version is found, do nothing.
 =#
 import Pkg
 
