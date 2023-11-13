@@ -16,7 +16,7 @@ runs:
     # Setup git environment
     - uses: actions/checkout@v4
     - run: | # Git credentials
-        git config --global user.name "${{ github.actor }}@RegisterAction"
+        git config --global user.name "RegisterBot@${{ github.actor }}"
         git config --global user.email "Register-Action@noreply.github.com"
       shell: bash
     - uses: webfactory/ssh-agent@v0.8.0
@@ -28,9 +28,7 @@ runs:
       with:
         version: '1'
         arch: x64
-    # - uses: julia-actions/cache@v1
-    #   with:
-    #     cache-registries: true
+    - uses: julia-actions/cache@v1
 
     # Run Local Registrator action 
     - run: julia --color=yes ${{ github.action_path }}/src/ci_register.jl ${{ inputs.localregistry }}
