@@ -23,18 +23,14 @@ runs:
       with:
           ssh-private-key: ${{ inputs.ssh_keys }}    
 
-    # Print the current actor
-    - run: echo "${{ github.actor }}@RegisterAction"
-      shell: bash
-
     # Setup julia
     - uses: julia-actions/setup-julia@latest
       with:
         version: '1'
         arch: x64
-    - uses: julia-actions/cache@v1
-      with:
-        cache-registries: true
+    # - uses: julia-actions/cache@v1
+    #   with:
+    #     cache-registries: true
 
     # Run Local Registrator action 
     - run: julia --color=yes ${{ github.action_path }}/src/ci_register.jl ${{ inputs.localregistry }}
